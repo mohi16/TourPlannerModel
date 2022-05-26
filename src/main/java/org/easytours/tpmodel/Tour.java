@@ -1,7 +1,10 @@
 package org.easytours.tpmodel;
 
-import java.time.LocalTime;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class Tour {
     private String name;
     private String description;
@@ -12,6 +15,7 @@ public class Tour {
     private String transportType;
     private String routeInfo;
 
+    public Tour(){}
     public Tour(
             String name,
             String description,
@@ -32,69 +36,6 @@ public class Tour {
         this.routeInfo = routeInfo;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getFrom() {
-        return from;
-    }
-
-    public void setFrom(String from) {
-        this.from = from;
-    }
-
-    public String getTo() {
-        return to;
-    }
-
-    public void setTo(String to) {
-        this.to = to;
-    }
-
-    public double getDistance() {
-        return distance;
-    }
-
-    public void setDistance(double distance) {
-        this.distance = distance;
-    }
-
-    public long getEstTime() {
-        return estTime;
-    }
-
-    public void setEstTime(long estTime) {
-        this.estTime = estTime;
-    }
-
-    public String getTransportType() {
-        return transportType;
-    }
-
-    public void setTransportType(String transportType) {
-        this.transportType = transportType;
-    }
-
-    public String getRouteInfo() {
-        return routeInfo;
-    }
-
-    public void setRouteInfo(String routeInfo) {
-        this.routeInfo = routeInfo;
-    }
 
     @Override
     public boolean equals(Object other) {
@@ -125,4 +66,16 @@ public class Tour {
                 isSame(transportType, other.transportType) &&
                 isSame(routeInfo, other.routeInfo);
     }
+
+    public boolean isValid(){
+        return null != name && !name.isEmpty() &&
+                null != description && !description.isEmpty() &&
+                null != from  && !from.isEmpty() &&
+                null != to  && !to.isEmpty()&&
+                0 <= distance &&
+                0 <= estTime &&
+                null != transportType && !transportType.isEmpty() &&
+                null != routeInfo  && !routeInfo.isEmpty();
+    }
+
 }
