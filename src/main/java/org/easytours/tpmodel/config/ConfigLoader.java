@@ -1,0 +1,32 @@
+package org.easytours.tpmodel.config;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.HashMap;
+
+public class ConfigLoader {
+
+    public static <T> T load(Class<T> t, String path) throws IOException {
+        File file = new File(path);
+        if (!file.exists()) {
+            if (!file.createNewFile())
+            {
+                System.out.println("file already exists XD");
+            }
+        }
+
+        ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
+
+        return mapper.readValue(file, t);
+    }
+
+    public static void save() {
+        // save config
+    }
+
+}
