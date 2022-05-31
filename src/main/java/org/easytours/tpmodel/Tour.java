@@ -1,10 +1,12 @@
 package org.easytours.tpmodel;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
+@JsonIgnoreProperties(value = { "valid" })
 public class Tour {
     private String name;
     private String description;
