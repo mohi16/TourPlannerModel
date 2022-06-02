@@ -16,6 +16,7 @@ public class Tour {
     private long estTime;
     private String transportType;
     private String routeInfo;
+    private String image;
 
     public Tour(){}
     public Tour(
@@ -26,7 +27,8 @@ public class Tour {
             double distance,
             long estTime,
             String transportType,
-            String routeInfo
+            String routeInfo,
+            String image
     ) {
         this.name = name;
         this.description = description;
@@ -36,6 +38,7 @@ public class Tour {
         this.estTime = estTime;
         this.transportType = transportType;
         this.routeInfo = routeInfo;
+        this.image = image;
     }
 
 
