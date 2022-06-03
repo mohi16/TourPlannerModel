@@ -17,6 +17,7 @@ public class Tour {
     private String transportType;
     private String routeInfo;
     private String image;
+    private TourLog[] tourLogs;
 
     public Tour(){}
     public Tour(
