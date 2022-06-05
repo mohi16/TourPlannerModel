@@ -3,10 +3,12 @@ package org.easytours.tpmodel;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
+import org.easytours.tpmodel.utils.TimeUtils;
+import org.easytours.tpmodel.utils.Triple;
 
 @Getter
 @Setter
-@JsonIgnoreProperties(value = { "valid" })
+@JsonIgnoreProperties(value = { "valid", "formattedTime" })
 public class Tour {
     private String name;
     private String description;
@@ -17,6 +19,7 @@ public class Tour {
     private String transportType;
     private String routeInfo;
     private String image;
+    private int id;
     private TourLog[] tourLogs;
 
     public Tour(){}
@@ -40,6 +43,11 @@ public class Tour {
         this.transportType = transportType;
         this.routeInfo = routeInfo;
         this.image = image;
+    }
+
+    public String getFormattedTime() {
+        Triple<Integer, Integer, Integer> time = TimeUtils.deconstructTime(estTime);
+        return String.format("%02d:%02d:%02d", time.getValue1(), time.getValue2(), time.getValue3());
     }
 
 

@@ -36,7 +36,7 @@ public class TourLog {
     }
     public String getTotalTimeAsString(){
         Triple<Integer, Integer, Integer> time = TimeUtils.deconstructTime(totalTime);
-        return time.getValue1() + ":" + time.getValue2() + ":" + time.getValue3();
+        return String.format("%02d:%02d:%02d", time.getValue1(), time.getValue2(), time.getValue3());
     }
 
     public String getRatingAsString(){
